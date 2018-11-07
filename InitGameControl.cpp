@@ -30,14 +30,14 @@ void InitGameControl::main(){
 					command += (pressedKey - '0');
 					if(command > 15) command = 0;
 				}else if(pressedKey == '#' && command != 0){
-					encodedMessage = encodeDecoder.EncodeMessage(0, command);
+					encodedMessage = encodeDecoder.EncodeMessage(Message(0, command));
 					currentState = WaitForHash;
 				}
 			case WaitForHash:
 				wait(KeyPressedInitQueue);
 				pressedKey = KeyPressedInitQueue.read();
 				if(pressedKey == '*'){
-					encodedMessage = encodeDecoder.EncodeMessage(0, 0);
+					encodedMessage = encodeDecoder.EncodeMessage(Message(0, 0));
 					displayControl.DisplayString("StartCommand", ENTIRE_SCREEN);
 					sendIrMessageControl.sendMessage(encodedMessage);
 					currentState = StartCommand;
