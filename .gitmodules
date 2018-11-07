@@ -10,6 +10,3 @@
 [submodule "lib/DisplayOLED"]
 	path = lib/DisplayOLED
 	url = git@github.com:2PUNT/DisplayOLED.git
-[submodule "DisplayOLED"]
-	path = DisplayOLED
-	url = git@github.com:2PUNT/DisplayOLED.git
