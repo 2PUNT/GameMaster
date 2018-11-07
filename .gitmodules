@@ -1,0 +1,12 @@
+[submodule "lib/IRSend"]
+	path = lib/IRSend
+	url = git@github.com:2PUNT/IRSend.git
+[submodule "lib/EncodeDecodeMSG"]
+	path = lib/EncodeDecodeMSG
+	url = git@github.com:2PUNT/EncodeDecodeMSG.git
+[submodule "lib/Keyboard_4x4"]
+	path = lib/Keyboard_4x4
+	url = git@github.com:2PUNT/Keyboard_4x4.git
+[submodule "lib/DisplayOLED"]
+	path = lib/DisplayOLED
+	url = git@github.com:2PUNT/DisplayOLED.git
