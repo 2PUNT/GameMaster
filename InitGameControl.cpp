@@ -8,7 +8,6 @@ void InitGameControl::main(){
 	while(true){
 		switch(currentState){
 			case WaitForKeyC:
-				hwlib::cout << "InitGameControl: WaitForKeyC\n";
 				displayControl.DisplayString("Press C to start!", StringType::ENTIRE_SCREEN);
 				wait(KeyPressedInitQueue);
 				pressedKey = KeyPressedInitQueue.read();
@@ -18,7 +17,6 @@ void InitGameControl::main(){
 				}
 				break;
 			case WaitForNumber:
-				hwlib::cout << "InitGameControl: WaitForNumber\n";
 				displayControl.DisplayString(command, StringType::ENTIRE_SCREEN);
 				wait(KeyPressedInitQueue);
 				pressedKey = KeyPressedInitQueue.read();
@@ -32,7 +30,6 @@ void InitGameControl::main(){
 				}
 			break;
 			case WaitForHash:
-				hwlib::cout << "InitGameControl: WaitForHash\n";
 				wait(KeyPressedInitQueue);
 				pressedKey = KeyPressedInitQueue.read();
 				if(pressedKey == '*'){
@@ -41,19 +38,15 @@ void InitGameControl::main(){
 					sendIrMessageControl.sendMessage(encodedMessage);
 					currentState = StartCommand;
 				}else if(pressedKey == '#'){
-					hwlib::cout << hwlib::hex << encodedMessage << hwlib::endl;
-					hwlib::cout << hwlib::hex << encodeDecoder.DecodeMessage(encodedMessage).data << hwlib::endl;
 					sendIrMessageControl.sendMessage(encodedMessage);
 				}
 			break;
 			case StartCommand:
-				hwlib::cout << "InitGameControl: StartCommand\n";
 				wait(KeyPressedInitQueue);
 				pressedKey = KeyPressedInitQueue.read();
 				if(pressedKey == 'C'){
 					currentState = WaitForNumber;
 				}else if(pressedKey == '*'){
-					hwlib::cout << hwlib::bin << encodedMessage << hwlib::endl;
 					sendIrMessageControl.sendMessage(encodedMessage);
 				}
 			break;
